@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+
+        <script type="text/javascript">
+           function miniCal(operator)
+           {
+                //alert(operator);
+                
+                if(operator == '+')
+                {
+                    //alert('You Click + Button');.
+
+                    //first_number = document.getElementById('first_number').value;
+                    First_number = Number(document.getElementById('first_number').value);
+
+                    //second_number = document.getElementById('second_number').value;
+                    Second_number = Number(document.getElementById('second_number').value);
+        
+                    //alert(first_number+second_number)
+                
+                    Result = First_number + Second_number;
+                    document.getElementById('result').innerHTML = Result;
+                }
+               
+                else if(operator == '-')
+                {
+                   //alert('You Click - Button');
+                   
+                    //first_number = document.getElementById('first_number').value;
+                    First_number = Number(document.getElementById('first_number').value);
+
+                    //second_number = document.getElementById('second_number').value;
+                    Second_number = Number(document.getElementById('second_number').value);
+        
+                    //alert(first_number+second_number)
+                
+                    Result = First_number - Second_number;
+                    document.getElementById('result').innerHTML = Result;
+                }
+               
+                else if(operator == '*')
+                {
+                    //alert('You Click * Button');
+                    
+                    //first_number = document.getElementById('first_number').value;
+                    First_number = Number(document.getElementById('first_number').value);
+
+                    //second_number = document.getElementById('second_number').value;
+                    Second_number = Number(document.getElementById('second_number').value);
+        
+                    //alert(first_number+second_number)
+                
+                    Result = First_number * Second_number;
+                    document.getElementById('result').innerHTML = Result;
+                }
+               
+                else if(operator == '/')
+                {
+                    //alert('You Click / Button');
+                    
+                    //first_number = document.getElementById('first_number').value;
+                    First_number = Number(document.getElementById('first_number').value);
+
+                    //second_number = document.getElementById('second_number').value;
+                    Second_number = Number(document.getElementById('second_number').value);
+        
+                    //alert(first_number+second_number)
+                
+                    Result = First_number / Second_number;
+                    document.getElementById('result').innerHTML = Result;
+                }
+               
+                else if(operator == '%')
+                {
+                    //alert('You Click % Button');
+                    
+                    //first_number = document.getElementById('first_number').value;
+                    First_number = Number(document.getElementById('first_number').value);
+
+                    //second_number = document.getElementById('second_number').value;
+                    Second_number = Number(document.getElementById('second_number').value);
+        
+                    //alert(first_number+second_number)
+                
+                    Result = First_number % Second_number;
+                    document.getElementById('result').innerHTML = Result;
+                }
+               
+           }
+        </script>
+    </head>
+<body>
+            <h1>Js Mini Calculator</h1>
+            <hr/>
+ <table>
+
+    <tr>
+            <td>First Number</td>
+            <td>
+                <input type="text" id="first_number">
+            </td>
+    </tr>
+
+    <tr>
+        <td>Second Number</td>
+        <td>
+            <input type="text" id="second_number">
+        </td>
+    </tr>
+
+    
+    <tr>
+        <td></td>
+        <td>
+            <input type="button" id="btn" onclick="miniCal('+')" value="+">
+            <input type="button" id="btn" onclick="miniCal('-')" value="-">
+            <input type="button" id="btn" onclick="miniCal('*')" value="*">
+            <input type="button" id="btn" onclick="miniCal('/')" value="/">
+            <input type="button" id="btn" onclick="miniCal('%')" value="%">
+        </td>
+    </tr>
+   
+    <tr>
+        <td>Result</td>
+        <td>
+            <span id="result">-----</span>
+        </td>
+    </tr>
+
+ </table>
+ 
+
+                        <!-- <script>
+                            let number_1 = 80,
+                            number_2 = 20;
+                        let resultAdd = number_1 + number_2;
+                        let resultSubstrac = number_1 - number_2;
+                        let resultMultiplication = number_1 * number_2;
+                        let resultDivision = number_1 / number_2;
+                        let resultModulas = number_1 % number_2;
+                        
+                        console.log(resultAdd);
+                        console.log(resultSubstrac);
+                        console.log(resultMultiplication);
+                        console.log(resultDivision);
+                        console.log(resultModulas);
+                        </script> -->
+
+    
+</body>
+</html>
+
+ 
