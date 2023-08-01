@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Task Calculator</title>
+
+    <script type="text/javascript">
+
+function tskCal(operator)
+       
+       {
+
+        First_number = Number(document.getElementById('first_number').value);
+        Second_number = Number(document.getElementById('second_number').value);
+        var Result1 = First_number + Second_number;
+ 
+        document.getElementById('result1').innerHTML = Result1;
+        
+       
+
+        switch (operator)
+        {
+
+             case '+':
+                {
+            Third_number = Number(document.getElementById('third_number').value);
+            Final_result = Result1 + Third_number;
+            document.getElementById('f_result').innerHTML = Final_result;
+            break;
+                }
+ 
+               case '-':
+                {
+            Third_number = Number(document.getElementById('third_number').value);
+            Final_result = Result1 - Third_number;
+            document.getElementById('f_result').innerHTML = Final_result;
+            break;
+                }
+ 
+                case '*':
+                {                    
+            Third_number = Number(document.getElementById('third_number').value);
+            Final_result = Result1 * Third_number;
+            document.getElementById('f_result').innerHTML = Final_result;
+            break;
+                }
+ 
+                case '/':
+                {                  
+            Third_number = Number(document.getElementById('third_number').value);
+            Final_result = Result1 / Third_number;
+            document.getElementById('f_result').innerHTML = Final_result;
+            break;
+                }
+
+        }
+
+        }
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <h1>Modified Calculator</h1>
+    <hr/>
+
+<table>
+
+    <tr>
+        <td>
+          First Number
+        </td>
+        <td>
+            <input type="text" id="first_number">
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+          Second Number
+        </td>
+        <td>
+            <input type="text" id="second_number">
+        </td>
+    </tr>
+ 
+    <tr>
+        <td>
+            Result 1
+        </td>
+        <td>
+            <span id="result1">---</span>
+            <input type="button" id="btn" onclick="tskCal('+')" value="ADD">
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+          Third Number
+        </td>
+        <td>
+            <input type="text" id="third_number">
+        </td>
+    </tr>
+    
+    <tr>
+        <td></td>
+
+        <td>
+            <input type="button" id="btn" onclick="tskCal('+')" value="+">
+            <input type="button" id="btn" onclick="tskCal('-')" value="-">
+            <input type="button" id="btn" onclick="tskCal('*')" value="*">
+            <input type="button" id="btn" onclick="tskCal('/')" value="/">    
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Final Result
+        </td>
+        <td>
+            <span id="f_result">---</span>
+        </td>
+    </tr>
+
+</table>
+    
+</body>
+</html>

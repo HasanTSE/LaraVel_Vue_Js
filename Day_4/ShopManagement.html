@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>SHOP</title>
+
+    <script type="text/javascript">
+  
+           var Qty = document.getElementById("qty");
+           var Rate =  document.getElementById("rate");
+           var  Vat =  document.getElementById("vat");
+           var Discount =  document.getElementById("discount");
+           var CashGiven =  document.getElementById("cash_amount");
+           
+            function shopFunction(){
+           
+                var Qty = parseFloat(qty.value);
+                if (isNaN(Qty)) Qty = 0;
+                var Rate =  parseFloat(rate.value);
+                if (isNaN(Rate)) Rate = 0;
+
+                    var Total_Invoice = Qty * Rate;
+                    document.getElementById("total_invoice").value = Total_Invoice;
+                
+
+                var Vat = parseFloat(vat.value);
+                if (isNaN(Vat)) Vat = 0;
+
+                    //var Vat_Amount =(Vat * (Total_Invoice / 100)) + Total_Invoice;
+                    var Vat_Amount =Vat * (Total_Invoice / 100);
+                    document.getElementById("vat_amount").value = Vat_Amount;
+
+                var Discount = parseFloat(discount.value);
+                if (isNaN(Discount)) Discount = 0;
+                
+                    var Gross_Amount = (Vat_Amount +Total_Invoice) - Discount;
+                    document.getElementById("gross_amount").value = Gross_Amount;
+
+                var CashGiven = parseFloat(cash_given.value);
+                if (isNaN(CashGiven)) CashGiven = 0;
+
+                    var Paid_Amount = CashGiven;
+                    document.getElementById("paid_amount").value = Paid_Amount;
+
+               
+           if(CashGiven > Gross_Amount)
+                {
+                    var Dues_Amount = 0;
+                    document.getElementById("dues_amount").value = Dues_Amount;
+                }
+           else
+                {
+                    var Dues_Amount = Gross_Amount - CashGiven;
+                    document.getElementById("dues_amount").value = Dues_Amount;
+                }
+
+            if(CashGiven < Gross_Amount)
+            {
+                var Change_Amount = 0;
+                document.getElementById("change_amount").value = Change_Amount;
+            }
+            else
+            {
+                var Change_Amount = CashGiven - Gross_Amount;
+                document.getElementById("change_amount").value = Change_Amount;
+            }
+                
+           
+           }
+
+
+    </script>
+                
+
+  </head>
+
+  <body>
+    
+   <h1>Item Sales Calculation</h1>
+   <hr/>
+
+<table>
+
+    <tr>
+        <td>
+            Item Name : 
+        </td>
+        <td>
+            <input type="text" id="item_name">
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Qty : 
+        </td>
+        <td>
+            <input type="text" id="qty" oninput="shopFunction()">
+        </td>
+       <td><select>
+        <option value="">Select Unit</option>
+        <option value="Pcs">Pcs</option>
+        <option value="Kg">Kg</option>
+        <option value="Litre">Litre</option>
+        <option value="Meter">Meter</option>
+      </select>
+
+       </td>
+
+    </tr>
+
+     
+       
+    <tr>
+        <td>
+            Rate : 
+        </td>
+        <td>
+            <input type="text" id="rate" oninput="shopFunction()">
+        </td>
+    </tr>
+       
+    <tr>
+        <td>
+            Total Invoice : 
+        </td>
+        <td>
+            <input type="tet" id="total_invoice" readonly>
+        </td>
+    </tr>
+          
+    <tr>
+        <td>
+            VAT (%) : 
+        </td>
+        <td>
+            <input type="text" id="vat" oninput="shopFunction()">
+        </td>
+    </tr>
+          
+    <tr>
+        <td>
+            VAT Amount (+) : 
+        </td>
+        <td>
+            <input type="text" id="vat_amount" readonly>
+        </td>
+    </tr>
+          
+    <tr>
+        <td>
+            Discount : 
+        </td>
+        <td>
+            <input type="text" id="discount" oninput="shopFunction()">
+        </td>
+    </tr>
+          
+    <tr>
+        <td>
+            Gross Amount : 
+        </td>
+        <td>
+            <input type="text" id="gross_amount" readonly>
+        </td>
+    </tr>
+          
+    <tr>
+        <td>
+            Cash Given : 
+        </td>
+        <td>
+            <input type="text" id="cash_given" oninput="shopFunction()">
+        </td>
+    </tr>
+          
+    <tr>
+        <td>
+            Paid Amount : 
+        </td>
+        <td>
+            <input type="text" id="paid_amount" readonly oninput="shopFunction()">
+        </td>
+    </tr>
+          
+    <tr>
+        <td>
+            Dues Amount : 
+        </td>
+        <td>
+            <input type="text" id="dues_amount" readonly>
+        </td>
+    </tr>
+          
+    <tr>
+        <td>
+            Change Amount : 
+        </td>
+        <td>
+            <input type="text" id="change_amount" readonly>
+        </td>
+    </tr>
+       
+        
+    
+
+</table>
+
+  </body>
+</html>
