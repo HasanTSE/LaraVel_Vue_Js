@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Showing Number</title>
+
+     <script type="text/javascript">
+    function showNum(btn)
+    {
+        Starting_number = Number(document.getElementById('starting_number').value);
+         
+        Ending_number = Number(document.getElementById('ending_number').value);
+
+        i='';
+        x='';
+        for(var i = Starting_number;i <= Ending_number;i++)
+        {
+            var x = x  +  i; 
+
+        }
+        document.getElementById('result').innerHTML = x;
+    }
+    </script>
+  </head>
+
+
+  <body>
+            <h1>Showing Number</h1>
+            <hr/>
+    <table>
+        <tr>
+            <td>
+                Starting Number : 
+            </td>
+            <td>
+                <input type="text" id="starting_number">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Ending Number : 
+            </td>
+            <td>
+                <input type="text" id="ending_number">
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+        <td>
+            <input type="button" id="btn" value="Click" onclick="showNum()">
+        </td>
+        </tr>
+
+        <tr>
+            <td>
+                Result :
+            </td>
+            <td>
+                <span id="result">---</span>
+            </td>
+        </tr>
+    </table>
+
+  </body>
+</html>
