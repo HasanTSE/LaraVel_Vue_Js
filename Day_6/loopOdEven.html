@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Loop for Odd-Even</title>
+
+            <script type="text/javascript">
+
+                function oddEven()
+                {
+                    StartingNumber = Number(document.getElementById('starting_number').value);
+                    EndingNumber = Number(document.getElementById('ending_number').value);
+
+                 if(onclick = document.getElementById('btnodd').value)
+                 {
+                    //alert("odd");
+                    if(StartingNumber < EndingNumber)
+                    {
+                        
+                        i='';
+                        x='';
+                        for(i = StartingNumber; i <= EndingNumber; i=i++)
+                        {
+                           if(i % 2 != 0)
+                           {
+                            x = x + ' ' + i;
+                           }                                              
+                        }
+                        document.getElementById('result').innerHTML = x;
+                    }                    
+                   else
+                    {
+                        
+                        i='';
+                        x='';
+                        for(let i = EndingNumber; i <= StartingNumber; i=i++)
+                        {
+                            if(i % 2 != 0)                             
+                            {
+                            x = x + ' ' + i;
+                            }
+                            
+                        }
+                        
+                        document.getElementById('result').innerHTML = x;
+                      }
+                    }
+ 
+                    
+                if(onclick = document.getElementById('btneven').value)
+                 {
+
+                    if(StartingNumber < EndingNumber)
+                    {               
+                        i='';
+                        x='';
+                        for(let i = StartingNumber; i <= EndingNumber; i=i++)
+                        {
+                             if(i % 2 == 0)
+                           {
+                            x = x +' '+ i;
+                           }
+                        }
+                        document.getElementById('result').innerHTML = x;
+                       }
+                    
+
+                    if(StartingNumber > EndingNumber)
+                    {
+                         
+                        i='';
+                        x='';
+                        for(let i = EndingNumber; i <= StartingNumber; i=i+2)
+                        {
+                            if(i % 2 == 0)
+                            {
+                                x = x +' '+ i;
+                            }
+                        }
+                        document.getElementById('result').innerHTML = x;
+                      }
+                    }  
+
+                }
+        
+             </script>
+  </head>
+
+  <body>
+    <h1>Check Odd-Even Number</h1>
+    <hr/>
+
+    <table>
+        <tr>
+            <td>
+                Staring Number : 
+            </td>
+            <td>
+                <input type="text" id="starting_number">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Ending Number : 
+            </td>
+            <td>
+                <input type="text" id="ending_number">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="button" id="btnodd" value="Odd Number" onclick="oddEven()">
+                <input type="button" id="btneven" value="Even Number" onclick="oddEven()"> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Result : 
+            </td>
+            <td>
+                <span id="result">-----</span>
+            </td>
+        </tr>
+    </table>
+
+  </body>
+</html>

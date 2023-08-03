@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Piramid</title>
+
+            <script type="text/javascript">
+                function piraMid()
+                {
+                    Limit = Number(document.getElementById('enter').value);
+                    //alert(Limit);
+
+                    i='';
+                    j='';
+                    k='';
+
+                    for(i = 1; i <= Limit; i++)
+                    {
+                        
+                        for(j = 1; j <= (Limit-i); j++)
+                        {
+                            document.write("&nbsp;");
+                           
+                        }
+                              for(k = 1; k <= i; k++)                              
+                           {                       
+                           document.write(" "+k+" "); 
+                           }                     
+                      document.write("<br/>");   
+                    }
+
+                }
+                         
+                        //document.getElementById("piramid").innerHTML = x;
+                        //document.getElementById("piramid").innerHTML = ("<br/>\n");
+
+                        
+
+                    
+
+                
+            </script>
+  </head>
+
+  <body>
+        <h1>Piramid</h1>
+        <hr/>
+    
+    <table>
+        <tr>
+            <td>
+                Enter the last limit : 
+            </td>
+            <td>
+                <input type="text" id="enter">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="button" id="btn" value="Process" onclick="piraMid()">
+            </td>
+        </tr>
+        
+        <!-- <tr>
+            <td>
+                Piramid :
+            </td>
+            <td>
+                <span id="piramid">-----</span>
+            </td>
+        </tr> -->
+
+    </table>
+  </body>
+</html>
