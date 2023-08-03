@@ -7,47 +7,53 @@
 
             <script type="text/javascript">
 
-                function oddEven()
+                function Odd(btnodd)
                 {
                     StartingNumber = Number(document.getElementById('starting_number').value);
                     EndingNumber = Number(document.getElementById('ending_number').value);
 
                  if(onclick = document.getElementById('btnodd').value)
                  {
-                    //alert("odd");
+                     
                     if(StartingNumber < EndingNumber)
                     {
                         
                         i='';
                         x='';
-                        for(i = StartingNumber; i <= EndingNumber; i=i++)
+                        for(i = StartingNumber; i <=EndingNumber; i++)
                         {
                            if(i % 2 != 0)
                            {
-                            x = x + ' ' + i;
-                           }                                              
+                            x = x +' '+ i;
+                             
+                           }      
+                           //alert(x);                                                                
                         }
-                        document.getElementById('result').innerHTML = x;
-                    }                    
-                   else
+                        document.getElementById('result').innerHTML = x; 
+                        
+                    }   
+                                 
+                    if(StartingNumber > EndingNumber)
                     {
                         
                         i='';
                         x='';
-                        for(let i = EndingNumber; i <= StartingNumber; i=i++)
+                        for(i = EndingNumber; i <=StartingNumber; i++)
                         {
                             if(i % 2 != 0)                             
                             {
-                            x = x + ' ' + i;
+                            x = x +' '+ i;
                             }
-                            
+                          //  alert(x);    
                         }
                         
                         document.getElementById('result').innerHTML = x;
                       }
                     }
- 
-                    
+                }
+                    function Even(btneven)
+                { 
+
                 if(onclick = document.getElementById('btneven').value)
                  {
 
@@ -55,12 +61,13 @@
                     {               
                         i='';
                         x='';
-                        for(let i = StartingNumber; i <= EndingNumber; i=i++)
+                        for(i = StartingNumber; i <= EndingNumber; i++)
                         {
                              if(i % 2 == 0)
                            {
                             x = x +' '+ i;
                            }
+                          // alert(x);    
                         }
                         document.getElementById('result').innerHTML = x;
                        }
@@ -71,12 +78,13 @@
                          
                         i='';
                         x='';
-                        for(let i = EndingNumber; i <= StartingNumber; i=i+2)
+                        for(i = EndingNumber; i <= StartingNumber; i++)
                         {
                             if(i % 2 == 0)
                             {
                                 x = x +' '+ i;
                             }
+                           // alert(x);    
                         }
                         document.getElementById('result').innerHTML = x;
                       }
@@ -111,8 +119,8 @@
         <tr>
             <td></td>
             <td>
-                <input type="button" id="btnodd" value="Odd Number" onclick="oddEven()">
-                <input type="button" id="btneven" value="Even Number" onclick="oddEven()"> 
+                <input type="button" id="btnodd" value="Odd Number" onclick="Odd()">
+                <input type="button" id="btneven" value="Even Number" onclick="Even()"> 
             </td>
         </tr>
         <tr>

@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Add-More</title>
+    </head>
+                                                                        <script src="https://code.jquery.com/jquery-3.3.1.min.js">
+                                                                        </script>		
+<script>
+	$(document).ready(function() {   
+                var addInput    = $(".input"); //Fields addInput
+                var addButton = $(".add"); //Add button ID
+ 
+   $(addButton).click(function(e){ //on add input button click       
+        e.preventDefault();
+        $(addInput).append('<div><input type="text" name="mytext[]"/><a href="#" class="remove">Remove</a></div>'); //add input box        
+                                 });  
+   $(addInput).on("click",".remove", function(e){ //user click on remove text      
+		e.preventDefault(); 
+		$(this).parent('div').remove(); 		 
+                                                     })
+                                });	
+</script>
+	<body>
+        <div class="input">
+            <button class="add">Add More Fields</button>
+            <div>
+                <input type="text" name="mytext[]">
+            </div>	
+        </div>
+    </body>
+</html>

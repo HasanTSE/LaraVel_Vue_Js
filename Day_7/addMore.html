@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Dynamic Add-More</title>
+
+
+                    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+   
+                    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+                    <link rel="stylesheet" href="css/ionicons.min.css"/>
+                
+                     <link rel="stylesheet" href="css/upperMenu.css"/>
+                   
+                    <link rel="stylesheet" href="dist/css/AdminLTE.min.css"/>
+                
+                    <link rel="stylesheet" href="dist/css/skins/ukskins.css"/>
+                   
+                    <link rel="stylesheet" href="css/style.css"/>
+                  
+                    <link rel="stylesheet" href="plugins/select2/select2.min.css"/>
+                    
+                    <!--link rel="stylesheet" href=="/production_html/plugins/jQueryUI/jquery-ui.css"/-->
+                    
+                     <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css"/>
+                   
+                    
+                    <script type="text/javascript" src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+                     <!--script type="text/javascript" src="/production_html/plugins/jQueryUI/jquery-ui.js"></script-->
+                    <script type="text/javascript" src="plugins/select2/select2.full.min.js"></script>
+                    <script type="text/javascript" src="plugins/select2/select2.min.js"></script>
+                    <script type="text/javascript" src="plugins/datatables/jquery.dataTables.min.js"></script>
+                    <script type="text/javascript" src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+                    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+                    <script type="text/javascript" src="bootstrap/js/../../plugins/input-mask/jquery.inputmask.js"></script>
+                    <script type="text/javascript" src="bootstrap/js/../../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+                    <script type="text/javascript" src="bootstrap/js/../../plugins/input-mask/jquery.inputmask.extensions.js"></script>
+                    <script type="text/javascript" src="dist/js/app.min.js"></script>
+                    
+                    <style>
+                        @media print {
+                            html, body {
+                            display: none;  /* hide whole page */
+                            }
+                        }
+                    </style>
+                    
+
+  </head>
+
+
+
+
+  <body oncontextmenu="return false;" class="hold-transition skin-blue sidebar-mini sidebar-collapse">
+  <!-- <body> -->
+		
+    <div class="col-md-12">
+		    
+			
+	
+
+        <div class="row">
+           <div class="col-sm-12">
+             <fieldset class="scheduler-border">
+                   <legend class="scheduler-border">Documents :  </legend>
+    
+                
+                
+                   
+                        <div class="col-md-12">
+    
+                               <table id="detailbList" class="table table-striped detailList2" style="font-size:10px !important;">
+                                         <tr>
+                                             <th style="width:10%;">Sl</th>
+                                             <th style="width:10%;">Doc Name</th>
+                                             <th style="width:10%;">Ref No</th>
+                                             <th style="width:10%;">Amount</th>
+                                             <th style="width:10%;">PUNIT</th>
+                                             <th style="width:10%;">Convert Rate</th>
+                                             <th style="width:10%;">Convert PUNIT</th>
+                                             <th style="width:10%;">Date</th>
+                                             <th style="width:10%;">Approval Sts</th>
+                                             <th style="width:10%;">Action</th>
+                                         </tr>
+                                        
+                                                                         
+                                                                         
+                                        <script type="text/javascript">
+                                        
+                                           
+                                                var childCount = 2;
+    
+                                                $(document).on('click',".delButton",function(){
+                                                                  
+                                                    var prnt = $(this).parents(".detail-div");
+                                                    var delInput = prnt.find("input[id$=deleted]");
+                                                                    
+                                                    delInput.attr('value', 'true');
+                                                    prnt.hide();
+                                                });
+                                                            
+                                                           
+    
+    
+    
+                                                function addChild_b() {
+                                                                
+                                                    var clone = $("#detailb0").clone();
+                                                    var htmlId = 'perm_' + childCount + '_';
+                                                                    
+                                                    
+    
+                                                    clone.find("input[id$=id]")
+                                                            .attr('id', htmlId + 'id')
+                                                            .attr('name', htmlId + 'id');
+                                                    clone.find("input[id$=deleted]")
+                                                            .attr('id', htmlId + 'deleted')
+                                                            .attr('name', htmlId + 'deleted');
+                                                    clone.find("input[id$=new]")
+                                                            .attr('id', htmlId + 'new')
+                                                            .attr('name', htmlId + 'new')
+                                                            .attr('value', 'true');
+    
+                                                    
+                                                    clone.find("input[id$=controller_name]").attr('id', htmlId + 'controller_name').attr('name', htmlId + 'controller_name');
+                                                    clone.find("select[id$=method_type]").attr('id', htmlId + 'method_type').attr('name', htmlId + 'method_type');
+                                                    
+                                                    clone.attr('id', 'detaila' + childCount);
+                                                    clone.attr('name', 'tr[' + childCount+']');
+                                                    $("#detailbList").append(clone);
+                                                    clone.show();
+                                                    childCount++;
+                                                }
+                                    </script>
+                                     
+    
+    
+                                    <tr id="detailb0" name="tr[0]" class="detail-div" style="display:none;">
+                                             <input type="hidden" id="perm_0_id" name="perm_0_id" value="0"/>
+                                            <input type="hidden" id="perm_0_deleted"  name="perm_0_deleted" value='false'/>
+                                             <input type="hidden" id="perm_0_new"  name="perm_0_new" value=""/>
+                                             
+                                      
+                                    
+                                      <td>
+                                             <div class="row">
+                                                  <div class="col-sm-12">
+                                                    <input type="text" class=" form-control input-sm"  value="1">
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                      </td>
+                                      
+                                       <td>
+                                             <div class="row">
+                                                  <div class="col-sm-12">
+                                                       <select id="factoryId" name="factoryId" class="form-control input-sm">
+                                                            <option value="1">Commercial Invoice(CI)</option>
+                                                            <option value="2">Packing List</option>
+                                                            <option value="2">Bill Of Loading(BL)</option>
+                                                            <option value="2">Country of Origin(CO)</option>
+                                                            <option value="2">Bill of Entry</option>
+                                                            <option value="2">Import Commercial(IMP)</option>
+                                                            <option value="2">Import against letter of authorization form (LCAF)</option>
+                                                            <option value="2">Insurence Coverage note with money receipt</option>
+                                                            <option value="2">Utilization Declaration(UD)</option>
+                                                            <option value="2">Utilization Permission(UP)</option>
+                                                            <option value="2">Bill of Exchange(BE)</option>
+                                                            <option value="2">Challan</option>
+                                                        </select>
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                      </td>
+                                      
+                                      <td>
+                                             <div class="row">
+                                                  <div class="col-sm-12">	
+                                                     <input type="text" name="no"   class="form-control input-sm " value="2154" >
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                      </td>
+                                      
+                                       <td>
+                                             <div class="row">
+                                                  <div class="col-sm-12">	
+                                                     <input type="text" name="yyu"  class="form-control"  value="" >
+                                                </div>
+    
+                                            </div>
+                                      </td>
+                                      
+                                       <td>
+                                             <div class="row">
+                                                  <div class="col-sm-12">	
+                                                     <select name="punit" class="form-control" style="width:100% !important;" VALUE="">
+                                                            <option value="">Dollar</option>
+                                                            <option value="">Pound</option>
+                                                            <option value="">Euro</option>
+                                                            <option value="">BDT</option>
+                                                     </select>
+                                                </div>
+    
+                                            </div>
+                                      </td>
+                                      
+                                       <td>
+                                             <div class="row">
+                                                  <div class="col-sm-12">	
+                                                     <input type="text" name="yyu"  class="form-control"  value="" >
+                                                </div>
+    
+                                            </div>
+                                      </td>
+                                      
+                                       <td>
+                                             <div class="row">
+                                                  <div class="col-sm-12">	
+                                                     <select name="punit" class="form-control" style="width:100% !important;" VALUE="">
+                                                            <option value="">Dollar</option>
+                                                            <option value="">Pound</option>
+                                                            <option value="">Euro</option>
+                                                            <option value="">BDT</option>
+                                                     </select>
+                                                </div>
+    
+                                            </div>
+                                      </td>
+                                      
+                                      
+                                      <td>
+                                      <div class="row">
+                                          <div class="col-sm-12">
+                                                     <input type="text" name="piDate"  style="text-align: center; font-weight: bold;" class="form-control input-sm datePick" placeholder="dd/mm/yyyy"  value="" >
+                                          </div>
+                                          </div>
+                                       </td>
+                                       
+                                        <td>
+                                      <div class="row">
+                                          <div class="col-sm-12">
+                                                     <input type="text" name="uu" value="DRAFT" class="form-control" readonly>
+                                          </div>
+                                          </div>
+                                       </td>
+    
+                                      <td>
+                                          <div class="row">
+                                               <div class="col-sm-12">
+                                                        <span class='delButton' id='delButton' name='results_0_delButton'><img src="images/database_delete.png"/></span>
+                                               </div>
+                                           </div>
+                                      </td> 
+                                  </tr>
+                                  
+                                      <tr id="detaila1" name="tr[0]" class="detail-div">
+                                             <input type="hidden" id="perm_0_id" name="perm_0_id" value="0"/>
+                                            <input type="hidden" id="perm_0_deleted"  name="perm_0_deleted" value='false'/>
+                                             <input type="hidden" id="perm_0_new"  name="perm_0_new" value=""/>
+                                             
+                                      
+                                    
+                                        <td>
+                                             <div class="row">
+                                                  <div class="col-sm-12">
+                                                    <input type="text" class=" form-control input-sm"  value="1">
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                      </td>
+                                      
+                                       <td>
+                                             <div class="row">
+                                                  <div class="col-sm-12">
+                                                       <select id="factoryId" name="factoryId" class="form-control input-sm">
+                                                            <option value="1">Commercial Invoice(CI)</option>
+                                                            <option value="2">Packing List</option>
+                                                            <option value="2">Bill Of Loading(BL)</option>
+                                                            <option value="2">Country of Origin(CO)</option>
+                                                            <option value="2">Bill of Entry</option>
+                                                            <option value="2">Import Commercial(IMP)</option>
+                                                            <option value="2">Import against letter of authorization form (LCAF)</option>
+                                                            <option value="2">Insurence Coverage note with money receipt</option>
+                                                            <option value="2">Utilization Declaration(UD)</option>
+                                                            <option value="2">Utilization Permission(UP)</option>
+                                                            <option value="2">Bill of Exchange(BE)</option>
+                                                            <option value="2">Challan</option>
+                                                        </select>
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                      </td>
+                                      
+                                      <td>
+                                             <div class="row">
+                                                  <div class="col-sm-12">	
+                                                     <input type="text" name="no"   class="form-control input-sm " value="2154" >
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                      </td>
+                                      
+                                       <td>
+                                             <div class="row">
+                                                  <div class="col-sm-12">	
+                                                     <input type="text" name="yyu"  class="form-control"  value="" >
+                                                </div>
+    
+                                            </div>
+                                      </td>
+                                      
+                                       <td>
+                                             <div class="row">
+                                                  <div class="col-sm-12">	
+                                                     <select name="punit" class="form-control" style="width:100% !important;" VALUE="">
+                                                            <option value="">Dollar</option>
+                                                            <option value="">Pound</option>
+                                                            <option value="">Euro</option>
+                                                            <option value="">BDT</option>
+                                                     </select>
+                                                </div>
+    
+                                            </div>
+                                      </td>
+                                      
+                                       <td>
+                                             <div class="row">
+                                                  <div class="col-sm-12">	
+                                                     <input type="text" name="yyu"  class="form-control"  value="" >
+                                                </div>
+    
+                                            </div>
+                                      </td>
+                                      
+                                       <td>
+                                             <div class="row">
+                                                  <div class="col-sm-12">	
+                                                     <select name="punit" class="form-control" style="width:100% !important;" VALUE="">
+                                                            <option value="">Dollar</option>
+                                                            <option value="">Pound</option>
+                                                            <option value="">Euro</option>
+                                                            <option value="">BDT</option>
+                                                     </select>
+                                                </div>
+    
+                                            </div>
+                                      </td>
+                                      
+                                      
+                                      <td>
+                                      <div class="row">
+                                          <div class="col-sm-12">
+                                                     <input type="text" name="piDate"  style="text-align: center; font-weight: bold;" class="form-control input-sm datePick" placeholder="dd/mm/yyyy"  value="" >
+                                          </div>
+                                          </div>
+                                       </td>
+                                       
+                                        <td>
+                                      <div class="row">
+                                          <div class="col-sm-12">
+                                                     <input type="text" name="uu" value="DRAFT" class="form-control" readonly>
+                                          </div>
+                                          </div>
+                                       </td>
+    
+                                      <td>
+                                          <div class="row">
+                                               <div class="col-sm-12">
+                                                        <span class='delButton' id='delButton' name='results_0_delButton'><img src="images/database_delete.png"/></span>
+                                               </div>
+                                           </div>
+                                      </td> 
+                                  
+                                     </tr>
+                                     
+                                         
+                                  
+                               </table>	
+                               
+                                    <div class="form-group">
+                                            <div class="col-md-12" align="center">
+                                                    <input type="button" class="ym-primary btn btn-warning btn-sm" style="margin: 5px;" value="Add More" onclick="addChild_b();"/>
+                                            </div>
+                                    </div>
+    
+                          </div>
+                
+             </fieldset>
+             
+             
+              
+        
+    </div>
+    </div>
+                
+                </div>
+            </div>
+               
+            </section>
+        </div>
+
+        <script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+
+  </body>
+</html>
