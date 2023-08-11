@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>	
+ 
+
+<script>
+
+
+function btnAdd()
+{
+  var v = $("#Trow").clone().appendTo("#Tbody") ;
+  $(v).find("input").val('');
+  $(v).removeClass("d-none");
+  $(v).find("th").first().html($('#Tbody tr').length + 1);
+}
+
+function btnDel(v)
+{
+     
+       $(v).parent().parent().remove(); 
+       
+
+        $("#Tbody").find("tr").each(
+    
+    function(index)        
+        {
+           $(this).find("th").first().html(index);
+            
+        }
+
+       );
+}
+
+function Add(v)
+{
+    /*Detail Calculation Each Row*/
+    var index = $(v).parent().parent().index();
+    
+    var rate = document.getElementsByName("rate")[index].value;
+
+    var quantity = document.getElementsByName("quantity")[index].value;
+
+    var total = rate * quantity;
+    document.getElementsByName("total")[index].value = total;
+
+     
+}
+
+
+ 
+// var Quantity = document.getElementById("quantity");
+// var Rate = document.getElementById("rate");
+// var Total = document.getElementById("total");
+
+// function Add()
+// {
+     
+
+//      var Quantity = parseFloat(quantity.value);
+//      if (isNaN(Quantity)) Quantity = 0;
+
+//      var Rate = parseFloat(rate.value);
+//      if (isNaN(Rate)) Rate = 0;
+
+//      var Total = Quantity * Rate;
+//      document.getElementById("total").value = Total;
+
+
+
+     //$("").append('<div><table><tr> <td><input type="text" id="itemName"></td><td><select><option value="">---------Select Unit---------</option><option value="Pcs">Pcs</option>  <option value="Kg">Kg</option> <option value="Litre">Litre</option><option value="Meter">Meter</option></select></td> <td><input type="text" id="rate" oninput="Add()"></td> <td><input type="text" id="quantity" oninput="Add()"></td>  <td><input type="text" id="total" oninput="Add()"></td>  </tr></table></div>');
+
+//$("table").append(Add());
+
+
+ 
+
+
+</script>
+
+<body>
+    
+    <h1>Add Row</h1>
+<hr/>
+
+<table>
+    
+
+    <tr>
+        
+        <th>Sl. No.</th>
+
+        <th>Item-Name</th>
+         
+        <th>Unit</th>
+         
+        <th>Rate</th>
+         
+        <th>Quantity</th>
+         
+        <th>Total</th>
+
+        <th><input type="button" id="addBtn" value="Add Row" onclick="btnAdd()"></th>
+
+    </tr>  
+    <tbody id="Tbody">  
+    <tr id="Trow" class="d-none">
+         
+        <th scope="row">1</th> 
+        <td><input type="text" id="itemName"></td>
+         
+        <td><select>
+            <option value="">---------Select Unit---------</option>
+            <option value="Pcs">Pcs</option>
+            <option value="Kg">Kg</option>
+            <option value="Litre">Litre</option>
+            <option value="Meter">Meter</option>
+          </select> 
+        </td>
+         
+        <td><input type="number" name="rate" oninput="Add(this);"></td>
+         
+        <td><input type="number" name="quantity" oninput="Add(this);"></td>
+
+        <td><input type="number" name="total"></td>
+
+        <!-- <td><input type="number" id="total" onchange=oninput="Add(this)"></td> -->
+
+        <!-- <td><input type="button" id="delBtn" value="Delete" onclick="btnDel(this)"></td> -->
+
+        <td><button type="button" id="delBtn" onclick="btnDel(this)">Delete</button></td>
+         
+        </tr>
+      </tbody>   
+</table>
+
+</body>
+</html>

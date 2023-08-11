@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>//////////////sesh bhai
+
+    function btnAdd() {
+        var v = $("#Trow").clone().appendTo("#Tbody");
+        $(v).find("input").val('');
+        $(v).removeClass("d-none");
+        $(v).find("th").first().html($('#Tbody tr').length + 1);
+    }
+
+    function btnDel(v) {
+
+        $(v).parent().parent().remove();
+
+       Addtotal();
+
+        $("#Tbody").find("tr").each(
+            function (index) {
+                $(this).find("th").first().html(index);
+
+            }
+        );
+    }
+
+    function Add(v) {
+        var index = $(v).parent().parent().index();
+        var rate = document.getElementsByName("rate")[index].value;
+        var quantity = document.getElementsByName("quantity")[index].value;
+        var total = rate * quantity;
+        document.getElementsByName("total")[index].value = total;
+
+        Addtotal();
+
+    }
+
+     
+         
+    function Addtotal()
+{
+      
+
+    var sum=0;
+    var allSubTotals = document.getElementsByName("total");
+
+    for (let index = 0; index < allSubTotals.length; index++)
+    {
+        var addition = allSubTotals[index].value;
+        sum = +(sum) +  +(addition); 
+    }
+
+    document.getElementById("grossTotal").value = sum;
+
+    var vat =  document.getElementById("vat").value;
+
+    var allTotal = +(sum) + +(vat * (sum / 100));
+    
+    var discount =  document.getElementById("discount").value;
+
+    var netAllTotal = allTotal - discount;
+
+    document.getElementById("allTotal").value = netAllTotal;
+
+
+
+    var paidAmount =  document.getElementById("paidAmount").value;
+    if(paidAmount < allTotal)
+            {
+                var changeAmount = 0;
+                document.getElementById("changeAmount").value = changeAmount;
+            }
+            else
+            {
+                var changeAmount = paidAmount - netAllTotal;
+                document.getElementById("changeAmount").value = changeAmount;
+            }
+
+     if(paidAmount > allTotal)
+            {
+                var dueAmount = 0;
+                document.getElementById("dueAmount").value = dueAmount;
+            }
+            else
+            {
+                var dueAmount = allTotal - paidAmount;
+                document.getElementById("dueAmount").value = dueAmount;
+            }
+      
+
+
+
+    
+
+    
+
+}
+     
+
+</script>
+
+<body>
+
+    <h1>Add Row by [MH3 BHAIJAN]</h1>
+    <hr />
+
+    <table>
+
+        <tr>
+
+            <th>Sl. No.</th>
+
+            <th>Item-Name</th>
+
+            <th>Unit</th>
+
+            <th>Rate</th>
+
+            <th>Quantity</th>
+
+            <th>Total</th>
+
+            <th><input type="button" id="addBtn" value="Add Row" onclick="btnAdd()"></th>
+
+        </tr>
+        <tbody id="Tbody">
+            <tr id="Trow" class="d-none">
+
+                <th scope="row">1</th>
+                <td><input type="text" id="itemName"></td>
+
+                <td><select>
+                        <option value="">---------Select Unit---------</option>
+                        <option value="Pcs">Pcs</option>
+                        <option value="Kg">Kg</option>
+                        <option value="Litre">Litre</option>
+                        <option value="Meter">Meter</option>
+                    </select>
+                </td>
+
+                <td><input type="number" name="rate" oninput="Add(this);"></td>
+
+                <td><input type="number" name="quantity" oninput="Add(this);"></td>
+
+                <td><input type="number" name="total"></td>
+
+                <td><button type="button" id="delBtn" onclick="btnDel(this)">Delete</button></td>      
+                
+            </tr>       
+        </tbody>
+    </table>
+
+<table>
+    <tbody id="Tbody2">
+        <tr>
+    <td>
+        Gross Total :
+    </td>
+    <td>
+        <input type="number" id="grossTotal" name="grossTotal">
+    </td>
+       </tr>
+       <tr>
+        <td>
+            Vat(%) : 
+        </td>
+        <td>
+            <input type="number" id="vat" name="vat" oninput="Addtotal(this);">
+        </td>
+           </tr>
+           <tr>
+            <td>
+                Discount : 
+            </td>
+            <td>
+                <input type="number" id="discount" name="discount" oninput="Addtotal(this);">
+            </td>
+               </tr>
+           <tr>
+            <td>
+                All Total : 
+            </td>
+            <td>
+                <input type="number" id="allTotal" name="allTotal">
+            </td>
+               </tr>
+               <tr>
+                <td>
+                    Paid Amount : 
+                </td>
+                <td>
+                    <input type="number" id="paidAmount" name="paidAmount" oninput="Addtotal(this);">
+                </td>
+                   </tr>
+                   <tr>
+                    <td>
+                        Change Amount : 
+                    </td>
+                    <td>
+                        <input type="number" id="changeAmount" name="changeAmount">
+                    </td>
+                       </tr>
+                       <tr>
+                        <td>
+                            Due Amount : 
+                        </td>
+                        <td>
+                            <input type="number" id="dueAmount" name="dueAmount">
+                        </td>
+                           </tr>
+       
+</tbody>
+</table>
+
+    
+</body>
+</html>

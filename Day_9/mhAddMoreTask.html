@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>Add-More</title>
+    </head>
+                                                                        <script src="https://code.jquery.com/jquery-3.3.1.min.js">
+                                                                        </script>		
+<script>
+	$(document).ready(function() {   
+                var addInput    = $(".input"); //Fields addInput
+                var addButton = $(".add"); //Add button ID
+                var Unit = $(".unit"); 
+                var Qty = $(".qty");
+                var Total = $(".total");
+ 
+   $(addButton).click(function(e){ //on add input button click   
+
+        //e.preventDefault();
+
+
+        $(addInput).append(
+            '<div><table><tr> <td><input type="text" name="mytext[]"/></td> <td><select><option value="">---------Select Unit---------</option><option value="Pcs">Pcs</option><option value="Kg">Kg</option><option value="Litre">Litre</option><option value="Meter">Meter</option> </select></td>  <td><input type="number" name="mytext[]"/></td> <td><input type="number" name="mytext[]"/></td>  <td><input type="" name="mytext[]"/></td> <td></td>   <a href="#" class="remove">Remove</a>   </tr></table></div>'
+            );//add input box
+
+
+           // $(addInput).append(AddRow);//add input box
+         
+                 
+                                 });  
+   $(addInput).on("click",".remove", function(e){ //user click on remove text      
+		e.preventDefault(); 
+		$(this).parent('div').remove(); 		 
+                                                     })
+                                });	
+
+
+</script>
+	<body>
+        <div class="input" onclick="AddRow">
+            <button class="add">Add More Fields</button>
+                                                            <div>
+                                                                <table>
+                                                                    <tr>
+                                                                        
+                                                                        <td>                                                                           
+                                                                            <input type="text" value="Item Name" readonly>                                                                               
+                                                                       </td>                                                                                                                                                                                                                      
+                                                                        <td>
+                                                                            <input type="text" value="Unit" readonly>                            
+                                                                        </td>                                                                        
+                                                                        <td>
+                                                                            <input type="text" class="rate" value="Rate" readonly>                           
+                                                                        </td>
+                                                                         <td>
+                                                                            <input type="text" class="qty" value="Qty" readonly>                           
+                                                                        </td>                                                                         
+                                                                        <td>
+                                                                            <input type="text" class="total" value="Total" readonly>                                                       
+                                                                        </td>
+                                                                         
+                                                                    </tr>
+                                                                    <tr>
+                                                                        
+                                                                        <td>                                                                           
+                                                                            <input type="text" name="mytext[]">                                                                              
+                                                                       </td>                                                                                                                                                                                                                      
+                                                                        <td>
+                                                                            <!-- <input type="text" name="mytext[] -->
+                                                                            <select>
+                                                                                <option value="">---------Select Unit---------</option>
+                                                                                <option value="Pcs">Pcs</option>
+                                                                                <option value="Kg">Kg</option>
+                                                                                <option value="Litre">Litre</option>
+                                                                                <option value="Meter">Meter</option>
+                                                                              </select> 
+                                                                                                   
+                                                                        </td>                                                                        
+                                                                        <td>
+                                                                            <input type="text" name="mytext[]">                         
+                                                                        </td>
+                                                                         <td>
+                                                                            <input type="text" name="mytext[]">                          
+                                                                        </td>                                                                         
+                                                                        <td>
+                                                                            <input type="text" name="mytext[]">                                                      
+                                                                        </td>
+                                                                         
+                                                                    </tr>
+                                                                </table>
+                                                           </div>
+                                <!-- <div>
+                                    <input type="text" name="mytext[]">
+                                </div>	 -->
+        </div>
+    </body>
+</html>
